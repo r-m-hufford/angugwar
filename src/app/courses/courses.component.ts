@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../common/models/course';
+import { CoursesService } from '../common/services/courses.service';
 
 const emptyCourse: Course = {
   id: null,
@@ -15,38 +16,13 @@ const emptyCourse: Course = {
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  // render courses
-  // select a course
-  // render selected courses
-  courses = [
-    {
-      id: '1',
-      title: 'Angular 13 Fundamentals',
-      description: 'Learn the fundamentals of Angular 13',
-      percentComplete: 26,
-      favorite: true
-    },
-    {
-      id: '2',
-      title: 'JavaScript Fundamentals',
-      description: 'Learn the fundamentals of Javascript',
-      percentComplete: 57,
-      favorite: true
-    },
-    {
-      id: '3',
-      title: 'Cyber Security Fundamentals',
-      description: 'Learn the fundamentals of Cyber Security',
-      percentComplete: 6,
-      favorite: false
-    },
-  ];
-
+  courses = [];
   selectedCourse: Course = emptyCourse;
   originalTitle = '';
-  constructor() { }
+  constructor(private courseService: CoursesService) {}
 
   ngOnInit(): void {
+      this.courses = this.courseService.courses;
   }
 
   selectCourse(course: Course) {
