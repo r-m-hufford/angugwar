@@ -6,12 +6,19 @@
       "description": "Learn the fundamentals of Angular 13",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": "iaWtBdJ",
+      "title": "some course",
+      "description": "it has a description",
+      "percentComplete": 21,
+      "favorite": true
     }
   ],
   "lessons": [
     {
       "id": "1",
-      "title":"Angular 13 Fundamentals"
+      "title": "Angular 13 Fundamentals"
     }
   ]
 }

@@ -17,8 +17,30 @@ export class CoursesService {
     return this.http.get(this.getUrl())
   }
 
+  findOne(id) {
+    return this.http.get(this.getUrlWithId(id))
+  }
+
+  create(course) {
+  return this.http.post(this.getUrl(), course);
+  }
+
+  update(course) {
+    return this.http.put(this.getUrlWithId(course.id), course)
+  }
+
+  delete(id) {
+    return this.http.delete(this.getUrlWithId(id))
+  }
+
+  
+
   private getUrl() {
     return `${BASE_URL}${this.model}`;
+  }
+
+  private getUrlWithId(id) {
+    return `${BASE_URL}${this.model}/${id}`
   }
 
   courses: Course[] = [
