@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LessonsService } from '../common/services/lessons.service';
 
 interface Lesson {
   title: string;
@@ -10,21 +11,16 @@ interface Lesson {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  courseLessons = [
-    { title: 'Hello Angular' },
-    { title: 'Component Fundamentals' },
-    { title: 'Template Driven Forms' },
-    { title: 'Angular Services' },
-    { title: 'Server Communication' },
-    { title: 'Component Driven Architecture' },
-    { title: 'Angular Routing' },
-    { title: 'Unit Testing Fundamentals' },
-  ];
+  lessons = [];
+  lessons$;
 
   selectedLesson: Lesson | string = 'select a lesson';
-  constructor() {}
+  constructor(private lessonsService: LessonsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.lessons = this.lessonsService.lessons;
+    this.lessons$ = this.lessonsService.lessons$;
+  }
 
   selectLesson(lesson: Lesson) {
     this.selectedLesson = lesson;
