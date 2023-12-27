@@ -13,7 +13,7 @@ export class CoursesService {
   constructor(private http: HttpClient){
   }
 
-  all(){
+  all(): any{
     return this.http.get(this.getUrl())
   }
 
