@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Lesson {
+  title: string;
+};
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,7 +21,12 @@ export class HomeComponent implements OnInit {
     { title: 'Unit Testing Fundamentals' },
   ];
 
+  selectedLesson: Lesson | string = 'select a lesson';
   constructor() {}
 
   ngOnInit() {}
+
+  selectLesson(lesson: Lesson) {
+    this.selectedLesson = lesson;
+  }
 }
