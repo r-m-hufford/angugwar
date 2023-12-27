@@ -13,6 +13,13 @@
       "description": "it has a description",
       "percentComplete": 21,
       "favorite": true
+    },
+    {
+      "id": "cWeR3z7",
+      "title": "stupid course",
+      "description": "a very stupid course",
+      "percentComplete": 10,
+      "favorite": false
     }
   ],
   "lessons": [
